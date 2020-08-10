@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title></title>       <!--网页标题-->
+     <script src="https://cdn.bootcss.com/wordcloud2.js/1.1.0/wordcloud2.js"></script>
+     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<body bgcolor="#333333"></body> <!--背景颜色，与词云的背景颜色相同-->
+	<script>
+		//document.write("<p>字体颜色: " + txt.fontcolor("green") + "</p>");'选个最大的吧'
+	var num = Math.ceil(Math.random()*6-1); //随机0-6
+	var char1 = ['选个最大的吧','选个最小的吧','选个最左边的吧','选个最右边的吧','选个最上边的吧','选个最下边的吧','再来一次吧'] //设为数组方便JavaScript控制字体属性
+		
+		switch(num) {
+     case 0:
+         document.write(char1[num].fontcolor("white").fontsize(6));
+        break;
+     case 1:
+        document.write(char1[num].fontcolor("white").fontsize(6));
+        break;
+	 case 2:
+        document.write(char1[num].fontcolor("white").fontsize(6));
+        break;
+	 case 3:
+        document.write(char1[num].fontcolor("white").fontsize(6));
+        break;
+	 case 4:
+        document.write(char1[num].fontcolor("white").fontsize(6));
+        break;
+	 case 5:
+        document.write(char1[num].fontcolor("white").fontsize(6));
+        break;
+     default:
+        document.write(char1[num].fontcolor("white").fontsize(6));
+} 
+		
+	</script>
+  
+	<button type="button"  onclick="javascript:location.reload()">一键改变命运</button><!--刷新按钮-->
+
+    <div id="canvas-container" align="center">  <!--位于中间-->
+        <canvas id="canvas" width="1000px" height="500px"></canvas> <!--创建一个画布-->
+    </div>
+	<script>
+	//获取n位随机数,随机来源chars
+	var chars = ['老综啊', '新综', '回锅肉', '吃素','食堂他不香吗','来来来，下一个，下一个，付完我看一下','黄焖鸡冲啊','茄子，冲啊','别吃了，还不够胖吗！'];//创建一个数组并赋值吃饭的地点
+    var id = Math.ceil(Math.random() * chars.length)-1;//Math.ceil(n); 返回大于等于n的最小整数。
+
+	//生成词云
+    var options = eval({
+        "list": [
+            [chars[0], Math.ceil(Math.random()*7+1)],//数字控制词云字体的大小，随即返回3-10的数字
+            [chars[1], Math.ceil(Math.random()*7+1)],
+            [chars[2], Math.ceil(Math.random()*7+1)],
+            [chars[3], Math.ceil(Math.random()*7+1)],
+            [chars[4], Math.ceil(Math.random()*7+1)],
+            [chars[5], Math.ceil(Math.random()*7+1)],
+            [chars[6], Math.ceil(Math.random()*7+1)],
+            [chars[7], Math.ceil(Math.random()*7+1)],
+            [chars[8], Math.ceil(Math.random()*7+1)]
+        ],
+        "gridSize": 16, // size of the grid in pixels
+        "weightFactor": 10, // number to multiply for size of each word in the list
+        "fontWeight": 'normal', // 'normal', 'bold' or a callback
+        "fontFamily": 'Times, serif', // font to use
+        "color": 'random-light', // 'random-dark' or 'random-light'
+        "backgroundColor": '#333', // the color of canvas
+        "rotateRatio": 1 // probability for the word to rotate. 1 means always rotate
+    });
+    var canvas = document.getElementById('canvas');
+    WordCloud(canvas, options);
+	
+</script>
+	
+</body>
+</html>
